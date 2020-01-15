@@ -4,4 +4,5 @@ Steps for automated GUI launch:
           ( as it contains files and applications that run everytime on system boot)
           
   Step 2: Inside the .bat file,type:
-                                         pythonw C:\Task\GUI.py
+                                         pythonw C:\Task\GUI.py  or
+                                         (type the complete location of the GUI.py in your system)
