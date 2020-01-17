@@ -60,7 +60,7 @@ def skip():
 
 
 master = tkinter.Tk()
-master.title("Periodic table guessing game")
+master.title("Periodic Guess")
 master.geometry("250x175")
 master.resizable(0, 0)
 
