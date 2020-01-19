@@ -10,5 +10,5 @@ def div(n):
                 lrg_div.append(n / i)
     for divisor in reversed(lrg_div):
         yield divisor
-n = int(input(""))
+n = int(input("Enter a number between 1 to 1000000"))
 print(len(list(div(n))))
