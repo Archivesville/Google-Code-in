@@ -1,46 +1,36 @@
-Python 3.7.4 (tags/v3.7.4:e09359112e, Jul  8 2019, 19:29:22) [MSC v.1916 32 bit (Intel)] on win32
-Type "help", "copyright", "credits" or "license()" for more information.
->>> from spellchecker import SpellChecker
-import re
+import math
+
+T = int(input(""))
+for i in range(T):
+    P = int(input(""))
+    N = math.floor(math.sqrt(8*P)/2)
+    n_values = []
+
+    if P == 1 or P == 2:
+        print('IRON MAN')
 
 
-spellings_to_check = ["hello", "how", "what", "however", "something", "anything",
-                    "give", "day", "about", "time", "make", "just", "people", "good", 
-                    "could", "would", "think", "after", "work", "because"]
-
-# Checks the word if it is in the checkSpellings list. If so, it corrects it.
-def check(word):
-    global spellings_to_check
-    
-    spell = SpellChecker()
-    word = word.lower()
-    
-    for possible in spell.candidates(word):
-        if possible in spellings_to_check:
-            return possible
-    
-    return word        
+    elif P == 3 or P == 4:
+        print('CAPTAIN AMERICA')
 
 
-# shows list of words that shall be checked
-print()
-print("The spellings will be checked for the following words:")
-for a in spellings_to_check:
-    if a != spellings_to_check[-1]:
-        print(a, end=", ")
     else:
-        print("\n")
+        for n in range(N - 2, N + 2):
+            score1 = 2*((n/2)**2)-1 + n
+            score2 = ((n**2)-1)/2 + n
+
+            if score1.is_integer() == True:
+                if score1 >= P or score1 + 1 >= P:
+                    n_values.append(n)
+
+            if score2.is_integer() == True:
+                if score2 >= P or score2 + 1 >= P:
+                    n_values.append(n)  
+
+  
+        if n_values[0] % 2 == 0:
+            print('CAPTAIN AMERICA')
 
 
-# Asks for input
-input_para = input("Enter the paragraph you want to check>> ")
-print()
-paragraph =  re.split('[\s]', input_para)
-
-
-# Prints out the corrected paragraph
-for word in paragraph:
-    a = check(word)
-    print(a + " ", end="")
-
-print()
+        elif n_values[0] % 2 == 1:
+            print('IRON MAN')
